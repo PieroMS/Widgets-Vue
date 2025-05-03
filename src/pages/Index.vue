@@ -12,7 +12,7 @@
     <main class="max-w-7xl mx-auto py-12 px-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <router-link
-          to="/"
+          to="/tags"
           class="bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-700 hover:border-blue-500 overflow-hidden group"
         >
           <div class="p-8 flex flex-col items-center justify-center h-full relative">

@@ -1,98 +1,40 @@
 <script setup>
-  import { defineProps, ref } from 'vue';
-  import { pay } from '../../storePayment/store'
+import { defineProps } from 'vue';
+import { pay } from '../../storePayment/store';
 
-  const props = defineProps(['id', 'numberOfPerson', 'totalPerPerson', 'paid']);
-  let paid = ref(false);
+const props = defineProps(['id', 'numberOfPerson', 'totalPerPerson', 'paid']);
 
-  function handleChange(e) {
-    paid = e.target.checked;
-    pay(props.id, paid);
-  }
+function handleChange(e) {
+  pay(props.id, e.target.checked);
+}
 </script>
 
 <template>
-  <div :class="['person', props.paid ? 'person-paid' : 'person-no-paid']">
-    <div class="person-number">
+  <div
+    :class="[
+      'p-4 rounded-md transition-colors',
+      props.paid ? 'bg-green-200/20 border border-green-500' : 'bg-red-200/10 border border-red-400'
+    ]"
+  >
+    <div class="text-lg font-semibold text-white mb-2">
       Person {{ props.numberOfPerson }}
     </div>
-    <div class="person-to-pay">
-      {{ 
+    <div class="text-green-400 font-bold text-base mb-4">
+      {{
         new Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'USD'
         }).format(props.totalPerPerson)
       }}
     </div>
-    <div class="paid">
-      <input type="checkbox" class="input-paid" name="" id="" @change="handleChange"> Paid
+    <div class="flex items-center gap-2 text-white">
+      <input
+        type="checkbox"
+        @change="handleChange"
+        :checked="props.paid"
+        class="w-5 h-5 rounded border-2 border-gray-500 bg-gray-700 checked:bg-emerald-500 checked:border-emerald-500 focus:ring-0 cursor-pointer relative"
+      />
+      Paid
     </div>
   </div>
 </template>
-
-<style scoped>
-.person {
-  padding: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.person-paid {
-  background-color: #c1f7d6;
-}
-
-.person-no-paid {
-  background-color: #eedada;
-}
-
-.person-number {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.person-to-pay {
-  font-size: 1.125rem;
-  color: #4caf50;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.paid {
-  display: flex;
-  align-items: center;
-}
-
-.input-paid {
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  margin-right: 10px;
-  border: 2px solid #6e6e6e;
-  border-radius: 4px;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  transition: background 0.3s, border-color 0.3s;
-}
-
-.input-paid:checked {
-  background-color: #10b981;
-  border-color: #10b981;
-}
-
-.input-paid:checked::after {
-  content: ':)';
-  font-size: 14px;
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.input-paid:hover {
-  border-color: #059669;
-}
-</style>

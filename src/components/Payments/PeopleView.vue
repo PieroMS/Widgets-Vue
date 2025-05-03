@@ -5,60 +5,24 @@
 </script>
 
 <template>
-  <div class="no-items" v-if="store.people.length === 0">No items</div>
-  <div class="people-view" v-if="store.people.length > 0">
-    <header class="header">
-      <div>
-        <Label title="Total + Tip: " :value="getGrantTotal()"/>
-      </div>
-      <div>
-        <Label title="Remaining: " :value="store.params.remaining"/>
-      </div>
+  <div v-if="store.people.length === 0" class="text-center text-gray-400 text-lg py-6">
+    No items
+  </div>
+
+  <div v-else class="w-full max-w-2xl mx-auto bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl shadow-lg p-6">
+    <header class="flex justify-between items-center border-b border-gray-600 pb-4 mb-4">
+      <Label title="Total + Tip: " :value="getGrantTotal()" />
+      <Label title="Remaining: " :value="store.params.remaining" />
     </header>
 
-    <div>
-      <div class="people-container">
-        <PersonView 
-          v-for="person in store.people" :key="person.id" 
-          :id="person.id" 
-          :number-of-person="person.numberOfPerson" 
-          :total-per-person="person.totalPerPerson" 
-          :paid="person.paid" />
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <PersonView 
+        v-for="person in store.people" :key="person.id" 
+        :id="person.id" 
+        :number-of-person="person.numberOfPerson" 
+        :total-per-person="person.totalPerPerson" 
+        :paid="person.paid" 
+      />
     </div>
   </div>
 </template>
-
-<style scoped>
-.people-container{
-  margin-top: 20px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-} 
-.no-items {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #6b7280;
-  padding: 1.5rem;
-}
-
-.people-view {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #f3f4f6;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #d1d5db;
-}
-</style>
