@@ -7,7 +7,7 @@
 <template>
   <div class="container min-h-screen min-w-full bg-gradient-to-br from-gray-800 to-gray-700 text-gray-100">
     <btnBack />
-    <InputFrom class="mb-6" />
+    <InputFrom class="mb-10" />
     <PeopleView />
   </div>
 </template>

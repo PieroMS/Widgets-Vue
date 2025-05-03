@@ -1,1 +1,36 @@
-# sin contenido
+# Vue 3 Widget App
+
+Esta es una aplicación desarrollada con **Vue 3** y **Tailwind CSS**, que actúa como un conjunto de widgets interactivos. El proyecto está estructurado como un menú principal desde donde se accede a tres herramientas:
+
+## 🧩 Funcionalidades
+
+### 1. 🏷️ Tags (Etiquetas)
+- Implementado con **Options API**.
+- Permite crear y eliminar etiquetas de manera dinámica.
+- Interfaz sencilla y responsiva.
+
+### 2. 📋 Kanban Board
+- Implementado con **Composition API**.
+- Sistema de gestión de tareas con múltiples tableros.
+- Soporte para drag-and-drop.
+- Permite añadir nuevas tareas y tableros de forma dinámica.
+
+### 3. 💸 Dividir Cuentas
+- También desarrollado con **Composition API**.
+- Calcula el total a pagar por persona, incluyendo propinas.
+- Marca visualmente quién ya pagó y quién no.
+- Usa un **store personalizado** para manejar los cálculos de distribución y estado.
+
+## 🛠️ Tecnologías Usadas
+
+- **Vue 3**
+- **Vue Router**
+- **Tailwind CSS**
+- **Store reactivo** personalizado (no Vuex ni Pinia)
+- **Composition API** y **Options API** según el componente
+
+## 🚀 Instalación y ejecución
+
+```bash
+npm install
+npm run dev
