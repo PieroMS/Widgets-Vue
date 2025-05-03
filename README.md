@@ -34,3 +34,6 @@ Esta es una aplicación desarrollada con **Vue 3** y **Tailwind CSS**, que actú
 ```bash
 npm install
 npm run dev
+
+![image](https://github.com/user-attachments/assets/6a07c5cf-fc8d-4b0d-a8df-b10c3e8f11ea)
+
